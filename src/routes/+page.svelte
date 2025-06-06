@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+  let { data } = $props();
+  const { books } = data;
+</script>
+
+<h1>Bible Books</h1>
+<ul class="book-list">
+  {#each books as b}
+    <li><a href={`/book/${b.slug}`}>{b.name}</a></li>
+  {/each}
+</ul>
+
+<style>
+  .book-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:.5rem;padding:0;list-style:none}
+  .book-list li{padding:.25rem;background:#eee;text-align:center}
+</style>
