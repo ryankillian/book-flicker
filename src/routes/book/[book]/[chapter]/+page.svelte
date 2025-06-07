@@ -1,7 +1,7 @@
 <script lang="ts">
   let { data } = $props();
   const { book, slug, chapter, verses } = data;
-  let current = 0;
+  let current = $state(0);
 
   function goTo(i: number) {
     current = i;
@@ -15,27 +15,32 @@
       <article class="slide">{v.text}</article>
     {/each}
   </div>
-  <a
+  <button
+    type="button"
     class="nav prev"
-    href="#"
-    on:click|preventDefault={() => goTo(Math.max(0, current - 1))}
-    >‹</a
+    onclick={() => goTo(Math.max(0, current - 1))}
+    aria-label="Previous"
   >
-  <a
+    ‹
+  </button>
+  <button
+    type="button"
     class="nav next"
-    href="#"
-    on:click|preventDefault={() => goTo(Math.min(verses.length - 1, current + 1))}
-    >›</a
+    onclick={() => goTo(Math.min(verses.length - 1, current + 1))}
+    aria-label="Next"
   >
+    ›
+  </button>
 </div>
 <ol class="markers">
   {#each verses as _, i}
     <li>
-      <a
-        href="#"
+      <button
+        type="button"
         class:selected={i === current}
-        on:click|preventDefault={() => goTo(i)}
-      ></a>
+        onclick={() => goTo(i)}
+        aria-label={`Go to verse ${i + 1}`}
+      ></button>
     </li>
   {/each}
 </ol>
@@ -79,14 +84,14 @@
         .markers li {
                 margin: 0 0.25rem;
         }
-        .markers a {
+        .markers button {
                 display: block;
                 width: 0.75rem;
                 height: 0.75rem;
                 border-radius: 50%;
                 background: #ccc;
         }
-        .markers a.selected {
+        .markers button.selected {
                 background: #666;
         }
 </style>
