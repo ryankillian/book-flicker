@@ -7,5 +7,5 @@ export const load: PageServerLoad = ({ params }) => {
   if (!data) throw error(404);
   const verses = data.chapters[params.chapter];
   if (!verses) throw error(404);
-  return { book: data.name, chapter: params.chapter, verses };
+  return { book: data.name, slug: params.book, chapter: params.chapter, verses };
 };

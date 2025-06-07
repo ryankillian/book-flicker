@@ -6,5 +6,5 @@ export const load: PageServerLoad = ({ params }) => {
   const data = getBook(params.book);
   if (!data) throw error(404);
   const chapters = Object.keys(data.chapters).sort((a, b) => Number(a) - Number(b));
-  return { book: data.name, chapters };
+  return { book: data.name, slug: params.book, chapters };
 };

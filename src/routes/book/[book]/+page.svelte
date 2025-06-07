@@ -1,12 +1,12 @@
 <script lang="ts">
   let { data } = $props();
-  const { book, chapters } = data;
+  const { book, slug, chapters } = data;
 </script>
 
 <h1><a href="/">Index</a> / {book}</h1>
 <ul class="chapter-list">
   {#each chapters as c}
-    <li><a href={`/book/${book}/${c}`}>Chapter {c}</a></li>
+    <li><a href={`/book/${slug}/${c}`}>Chapter {c}</a></li>
   {/each}
 </ul>
 
