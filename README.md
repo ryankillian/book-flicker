@@ -14,3 +14,4 @@ A simple SvelteKit-based website that lets users flick through a book line by li
 - [SvelteKit](https://kit.svelte.dev/)  
 - Modern CSS (carousel implementation)
 - [OpenAI Codex](https://openai.com/product/codex) for code assistance
+Enjoy exploring the Bible with Book Flicker.
