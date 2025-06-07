@@ -51,7 +51,7 @@
       block-size: 44px;
       inline-size: 50px;
     }
-  
+
     .carousel__slide::scroll-marker {
       content: "";
       inline-size: 10px;
