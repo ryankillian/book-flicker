@@ -1,5 +1,5 @@
-import { listBookNames } from '$lib/data/books';
+import { listBooks } from '$lib/data/books';
 
 export function load() {
-  return { books: listBookNames() };
+	return { books: listBooks() };
 }
